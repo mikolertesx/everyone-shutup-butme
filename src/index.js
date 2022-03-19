@@ -22,17 +22,18 @@ client.on("messageCreate", (message) => {
 		return;
 	}
 
-	if (!message.member.permissions.has(Permissions.FLAGS.MUTE_MEMBERS)) {
-		message.reply(strings.PERMISSION_ERROR);
-		return;
-	}
-
 	if (
 		!message.content.startsWith(strings.MUTE_START) &&
 		!message.content.startsWith(strings.UNMUTE_START)
 	) {
 		return;
 	}
+	
+	if (!message.member.permissions.has(Permissions.FLAGS.MUTE_MEMBERS)) {
+		message.reply(strings.PERMISSION_ERROR);
+		return;
+	}
+
 
 	if (message.content.startsWith(strings.MUTE_START)) {
 		muteEveryone(message);
