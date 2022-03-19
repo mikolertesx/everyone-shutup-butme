@@ -1,6 +1,6 @@
 const { Client, Intents, Permissions } = require("discord.js");
 const strings = require("./strings");
-console.log(process.env);
+
 if (process.env.NODE_ENV === "dev") {
 	require("dotenv").config();
 }
